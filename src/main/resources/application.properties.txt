@@ -1,0 +1,97 @@
+spring.jpa.hibernate.ddl-auto=validate
+spring.jpa.open-in-view=true
+spring.h2.console.enabled=true
+
+#spring.jpa.hibernate.ddl-auto=VALIDATE
+#spring.datasource.initialize=true
+#spring.datasource.url=jdbc:h2:mem:sample;MODE=MYSQL;INIT=RUNSCRIPT FROM 'classpath:db/baseinicial.sql';DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+#spring.datasource.url=jdbc:h2:mem:sample;MODE=MYSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+#spring.datasource.driverClassName=org.h2.Driver
+#spring.datasource.username=sa
+#spring.datasource.password=
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+#flyway.schemas=PUBLIC
+#spring.jpa.open-in-view=true
+#spring.h2.console.enabled=true
+
+# Datasource
+#spring.datasource.url=jdbc:h2:file:~/test;MODE=Oracle
+#spring.datasource.username=sa
+#spring.datasource.password=
+#spring.datasource.driver-class-name=org.h2.Driver
+#spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+#spring.jpa.show-sql = true
+#spring.jpa.hibernate.ddl-auto = create-drop
+
+
+# MYSQL
+#spring.jpa.hibernate.ddl-auto= none, update, create, create-drop
+#spring.datasource.url=jdbc:mysql://localhost:3306/apidfe
+#spring.datasource.username=admin
+#spring.datasource.password=123 
+#spring.jpa.show-sql = true
+
+# Email (MailProperties)
+#spring.mail.default-encoding=UTF-8 # Default MimeMessage encoding.
+#spring.mail.host= # SMTP server host. For instance `smtp.example.com`
+#spring.mail.jndi-name= # Session JNDI name. When set, takes precedence to others mail settings.
+#spring.mail.password= # Login password of the SMTP server.
+#spring.mail.port= # SMTP server port.
+#spring.mail.properties.*= # Additional JavaMail session properties.
+#spring.mail.protocol=smtp # Protocol used by the SMTP server.
+#spring.mail.test-connection=false # Test that the mail server is available on startup.
+#spring.mail.username= # Login user of the SMTP server.
+
+
+#enable/diable https
+#server.ssl.enabled=true
+server.port=5000
+
+#ssl ciphers
+#server.ssl.ciphers=TLS_RSA_WITH_AES_128_CBC_SHA256, INCLUDE_ANY_OTHER_ONES_YOU_NEED_TO_SUPPORT
+
+# SSL protocol to use.
+#server.ssl.protocol=TLS
+
+# Enabled SSL protocols.
+#server.ssl.enabled-protocols=TLSv1.2
+
+
+I suggest using a proper JDBC Connection Pool like HikariCP that together with a validation query which will execute on correct intervals should give you fresh and proper connections each time.
+
+Assuming you are using Spring and xml to configure the datasource.
+
+<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+    <property name="poolName" value="springHikariCP" />
+    <property name="dataSourceClassName"       value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
+    <property name="dataSourceProperties">
+        <props>
+            <prop key="url">${jdbc.url}</prop>
+            <prop key="user">${jdbc.username}</prop>
+            <prop key="password">${jdbc.password}</prop>
+        </props>
+    </property>
+</bean>
+It by default validates connections on checkout. I suggest a try out.
+
+As you are using java bases config I suggest the following
+
+@Bean
+public DataSource dataSource() {
+    HikariDataSource ds = new HikariDataSource();
+    ds.setPoolName("springHikariCP");
+    ds.setMaxPoolSize(20);
+    ds.setLeakDetectionThreshold(5000);
+    ds.setDataSourceClassName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
+    ds.addDataSourceProperty("url", url);
+    ds.addDataSourceProperty("user", username);
+    ds.addDataSourceProperty("password", password);
+    ds.addDataSourceProperty("cachePrepStmts", true);
+    ds.addDataSourceProperty("prepStmtCacheSize", 250);
+    ds.addDataSourceProperty("prepStmtCacheSqlLimit", 2048);
+    ds.addDataSourceProperty("useServerPrepStmts", true);
+    ds.addDataSourceProperty("verifyServerCertificate", false);
+    ds.addDataSourceProperty("useSSL", true);
+    ds.addDataSourceProperty("requireSSL", true);
+    return ds;
+}

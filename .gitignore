@@ -1,3 +1,13 @@
+# eclipse
+*.project
+*.springBeans
+*.classpath
+*.settings
+*.settings/*
+
+# target
+target
+
 # Compiled class file
 *.class
 

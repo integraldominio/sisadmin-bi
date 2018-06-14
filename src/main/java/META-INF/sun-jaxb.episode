@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings version="2.1" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.11 
+Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+Gerado em: 2018.04.12 às 09:35:31 AM BRT 
+
+  -->
+  <jaxb:bindings scd="x-schema::">
+    <jaxb:schemaBindings map="false">
+      <jaxb:package name="generated"/>
+    </jaxb:schemaBindings>
+    <jaxb:bindings scd="getCountryRequest">
+      <jaxb:class ref="generated.GetCountryRequest"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="rDE">
+      <jaxb:class ref="generated.RDE"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCiODE">
+      <jaxb:class ref="generated.GCiODE"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gDTim">
+      <jaxb:class ref="generated.GDTim"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCamOC">
+      <jaxb:class ref="generated.GCamOC"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gDaGOC">
+      <jaxb:class ref="generated.GDaGOC"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gEmis">
+      <jaxb:class ref="generated.GEmis"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gDatRec">
+      <jaxb:class ref="generated.GDatRec"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gDtipDe">
+      <jaxb:class ref="generated.GDtipDe"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gDatMon">
+      <jaxb:class ref="generated.GDatMon"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dTipCam">
+      <jaxb:class ref="generated.DTipCam"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCamFE">
+      <jaxb:class ref="generated.GCamFE"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCdfpoc">
+      <jaxb:class ref="generated.GCdfpoc"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCamTarCD">
+      <jaxb:class ref="generated.GCamTarCD"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="iDenTarj">
+      <jaxb:class ref="generated.IDenTarj"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dDesTarj">
+      <jaxb:class ref="generated.DDesTarj"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dRUCproTar">
+      <jaxb:class ref="generated.DRUCproTar"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dDVerRprT">
+      <jaxb:class ref="generated.DDVerRprT"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="iForProPa">
+      <jaxb:class ref="generated.IForProPa"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dDForProPa">
+      <jaxb:class ref="generated.DDForProPa"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dNunapOpe">
+      <jaxb:class ref="generated.DNunapOpe"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCdOpCre">
+      <jaxb:class ref="generated.GCdOpCre"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCdesIOp">
+      <jaxb:class ref="generated.GCdesIOp"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dParAranc">
+      <jaxb:class ref="generated.DParAranc"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dNomCoMerc">
+      <jaxb:class ref="generated.DNomCoMerc"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dCodDncp">
+      <jaxb:class ref="generated.DCodDncp"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dCodGtin">
+      <jaxb:class ref="generated.DCodGtin"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dCodGtinPq">
+      <jaxb:class ref="generated.DCodGtinPq"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCvalorItem">
+      <jaxb:class ref="generated.GCvalorItem"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCIVAopeVta">
+      <jaxb:class ref="generated.GCIVAopeVta"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCISCope">
+      <jaxb:class ref="generated.GCISCope"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="cCatISC">
+      <jaxb:class ref="generated.CCatISC"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dDesCatISC">
+      <jaxb:class ref="generated.DDesCatISC"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="cTasaISC">
+      <jaxb:class ref="generated.CTasaISC"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCamComEsp">
+      <jaxb:class ref="generated.GCamComEsp"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gRasMerc">
+      <jaxb:class ref="generated.GRasMerc"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gDetVehN">
+      <jaxb:class ref="generated.GDetVehN"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="iTipOpVN">
+      <jaxb:class ref="generated.ITipOpVN"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dDesTipOpVN">
+      <jaxb:class ref="generated.DDesTipOpVN"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dChasis">
+      <jaxb:class ref="generated.DChasis"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dColorCod">
+      <jaxb:class ref="generated.DColorCod"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dDesColor">
+      <jaxb:class ref="generated.DDesColor"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dPotVeh">
+      <jaxb:class ref="generated.DPotVeh"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dCapMot">
+      <jaxb:class ref="generated.DCapMot"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dPNet">
+      <jaxb:class ref="generated.DPNet"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dPBruto">
+      <jaxb:class ref="generated.DPBruto"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dNSerie">
+      <jaxb:class ref="generated.DNSerie"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="iTipCom">
+      <jaxb:class ref="generated.ITipCom"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dDesTipCom">
+      <jaxb:class ref="generated.DDesTipCom"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dNroMotor">
+      <jaxb:class ref="generated.DNroMotor"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dCapTracc">
+      <jaxb:class ref="generated.DCapTracc"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dDisEj">
+      <jaxb:class ref="generated.DDisEj"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dAnoMod">
+      <jaxb:class ref="generated.DAnoMod"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dAnoFab">
+      <jaxb:class ref="generated.DAnoFab"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="iTP">
+      <jaxb:class ref="generated.ITP"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dDesTP">
+      <jaxb:class ref="generated.DDesTP"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="cTipVeh">
+      <jaxb:class ref="generated.CTipVeh"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="cEspVeh">
+      <jaxb:class ref="generated.CEspVeh"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="iCondVeh">
+      <jaxb:class ref="generated.ICondVeh"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dDesCondVeh">
+      <jaxb:class ref="generated.DDesCondVeh"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="dLotac">
+      <jaxb:class ref="generated.DLotac"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gTotSub">
+      <jaxb:class ref="generated.GTotSub"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gInfPed">
+      <jaxb:class ref="generated.GInfPed"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="gCamFuFD">
+      <jaxb:class ref="generated.GCamFuFD"/>
+    </jaxb:bindings>
+  </jaxb:bindings>
+</jaxb:bindings>
+
