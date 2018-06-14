@@ -1,17 +1,18 @@
 # eclipse
-*.project
-*.springBeans
-*.classpath
-*.settings
-*.settings/*
+backend/*.project
+backend/*.springBeans
+backend/*.classpath
+backend/*.settings
+backend/*.settings/*
 
 # target
-target
+backend/target
 
 # Compiled class file
-*.class
+backend/*.class
 
 # Log file
+backend/*.log
 *.log
 
 # BlueJ files
@@ -21,7 +22,7 @@ target
 .mtj.tmp/
 
 # Package Files #
-*.jar
+*.log
 *.war
 *.nar
 *.ear
