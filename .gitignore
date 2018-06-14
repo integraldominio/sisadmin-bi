@@ -1,4 +1,6 @@
-# eclipse
+front/.*
+front/*.tgz
+# 
 backend/*.project
 backend/*.springBeans
 backend/*.classpath
