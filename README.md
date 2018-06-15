@@ -21,7 +21,7 @@
 > A Spring Boot token-based security starter kit featuring [AngularJS](https://angularjs.org/) and [Spring Boot](https://projects.spring.io/spring-boot/) ([JSON Web Token](https://jwt.io/))
 
 <p align="center">
-    <img width="800" alt="Springboot JWT Starter" src="image1.png">
+    <img width="800" alt="Springboot JWT Starter" src="image1.PNG">
 </p>
 
 ## Quick start
