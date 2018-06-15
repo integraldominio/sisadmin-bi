@@ -19,9 +19,9 @@
 
 > If you're looking for using Angular 1.x for frontend implementation, please check out [springboot-jwt-starter](https://github.com/bfwg/springboot-jwt-starter)
 > A Spring Boot token-based security starter kit featuring [AngularJS](https://angularjs.org/) and [Spring Boot](https://projects.spring.io/spring-boot/) ([JSON Web Token](https://jwt.io/))
-### [Live Demo](http://angular-spring-starter.fanjin.io)
+
 <p align="center">
-    <img width="800" alt="Springboot JWT Starter" src="https://cloud.githubusercontent.com/assets/12819525/26290994/3895daca-3e60-11e7-9465-421e0b029343.png">
+    <img width="800" alt="Springboot JWT Starter" src="image1.png">
 </p>
 
 ## Quick start
