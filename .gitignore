@@ -1,6 +1,7 @@
 frontend/package-lock.json
-front/.*
-front/*.tgz
+frontend/.*
+frontend/*.tgz
+frontend/node_modules/*
 # 
 backend/*.project
 backend/*.springBeans

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
+import {
+  UserService
+} from '../../service'
 @Component({
   selector: 'app-api-card',
   templateUrl: './api-card.component.html',
@@ -18,15 +20,22 @@ export class ApiCardComponent implements OnInit {
 
   @Output() apiClick: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     console.log(this.responseObj);
   }
 
   onButtonClick() {
-    this.expand = true;
-    this.apiClick.next(this.apiText);
+    /*this.expand = true;*/
+    /*this.apiClick.next(this.apiText);*/
+    console.log('"printing...');
+    this.printReport();
+  }
+
+  printReport() {
+    this.userService.getReport()
+    .subscribe(res => {}, err => {});
   }
 
   responsePanelClass() {

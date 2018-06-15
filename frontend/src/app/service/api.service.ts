@@ -35,6 +35,8 @@ export class ApiService {
       options['params'] = serialize(args);
     }
 
+    console.log(path);
+
     return this.http.get(path, options)
       .catch(this.checkError.bind(this));
   }

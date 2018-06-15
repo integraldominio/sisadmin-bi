@@ -39,4 +39,9 @@ export class UserService {
     return this.apiService.get(this.config.users_url);
   }
 
+  getReport() {
+    return this.apiService.get(this.config.report_url);
+  }
+
+
 }

@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+
   makeRequest(path) {
     if (path === this.config.foo_url) {
       this.fooService.getFoo()
