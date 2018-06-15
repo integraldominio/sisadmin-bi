@@ -34,8 +34,11 @@ export class ApiCardComponent implements OnInit {
   }
 
   printReport() {
-    this.userService.getReport()
-    .subscribe(res => {}, err => {});
+
+    window.open('http://localhost:8080/api/report', '_black');
+
+    //this.userService.getReport()
+    // .subscribe(res => {   }, err => {});
   }
 
   responsePanelClass() {
