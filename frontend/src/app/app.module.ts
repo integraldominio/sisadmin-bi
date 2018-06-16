@@ -3,6 +3,7 @@ import { NgModule, APP_INITIALIZER} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+
 // material
 import {
   MatButtonModule,
@@ -13,7 +14,8 @@ import {
   MatCardModule,
   MatInputModule,
   MatIconRegistry,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -79,7 +81,8 @@ export function initUserFactory(userService: UserService) {
     MatToolbarModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSnackBarModule
   ],
   providers: [
     LoginGuard,

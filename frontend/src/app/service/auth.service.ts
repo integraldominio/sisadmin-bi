@@ -4,7 +4,7 @@ import { ApiService } from './api.service';
 import { UserService } from './user.service';
 import { ConfigService } from './config.service';
 import { MatSnackBar } from '@angular/material';
-import { Observable } from 'rxjs/Observable';
+
 
 @Injectable()
 export class AuthService {
