@@ -26,7 +26,7 @@ public class ReportController
     private ModelAndView erroReport()
     {
         JasperReportsPdfView view = new JasperReportsPdfView();
-        view.setUrl("classpath:repERRO.jrxml");
+        view.setUrl("classpath:repPDF.jrxml");
         view.setApplicationContext(appContext);
         Map<String, Object> params = new HashMap<>();
         params.put("datasource", new net.sf.jasperreports.engine.JREmptyDataSource());
