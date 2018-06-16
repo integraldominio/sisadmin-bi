@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.idomine.model.Authority;
 import com.idomine.model.User;
 import com.idomine.model.UserRequest;
+import com.idomine.model.UserRoleName;
 import com.idomine.repository.UserRepository;
 import com.idomine.service.AuthorityService;
 import com.idomine.service.UserService;
@@ -65,7 +66,7 @@ public class UserServiceImpl implements UserService {
     user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
     user.setFirstname(userRequest.getFirstname());
     user.setLastname(userRequest.getLastname());
-    List<Authority> auth = authService.findByname("ROLE_USER");
+    List<Authority> auth = authService.findByname(UserRoleName.ROLE_USER);
     user.setAuthorities(auth);
     this.userRepository.save(user);
     return user;
