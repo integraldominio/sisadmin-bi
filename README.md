@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/integraldominio/sisadmin-bi" target="_blank">
-    <img src="https://github.com/integraldominio/sisadmin-bi/ng6.png" alt="Spring Boot and Angular 2" width="500" height="320"/>
+    <img src="https://github.com/integraldominio/sisadmin-bi/blob/master/ng6.png" alt="Spring Boot and Angular 2" width="500" height="320"/>
   </a>
 </p>
 
