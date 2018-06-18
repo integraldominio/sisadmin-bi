@@ -3,17 +3,21 @@ frontend/.*
 frontend/*.tgz
 frontend/node_modules/*
 # 
+backend/*.class
 backend/*.project
 backend/*.springBeans
 backend/*.classpath
 backend/*.settings
 backend/*.settings/*
-
-# target
 backend/target
 
-# Compiled class file
-backend/*.class
+backend_two/*.class
+backend_two/*.project
+backend_two/*.springBeans
+backend_two/*.classpath
+backend_two/*.settings
+backend_two/*.settings/*
+backend_two/target
 
 # Log file
 backend/*.log
