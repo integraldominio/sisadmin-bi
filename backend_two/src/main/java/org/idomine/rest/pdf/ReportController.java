@@ -27,7 +27,7 @@ public class ReportController
     {
         JasperReportsPdfView view = new JasperReportsPdfView();
         view.setUrl("classpath:repPDF.jrxml");
-        view.setApplicationContext(appContext);
+        //view.setApplicationContext(appContext);
         Map<String, Object> params = new HashMap<>();
         params.put("datasource", new net.sf.jasperreports.engine.JREmptyDataSource());
         return new ModelAndView(view, params);
