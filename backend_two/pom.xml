@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.domine</groupId>
-	<artifactId>sisadmin-bi</artifactId>
+	<artifactId>sisadmin-bi2</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>sisadmin-bi</name>
+	<name>sisadmin-bi2</name>
 	<description>Spring Boot Angular 6 JWT</description>
 
 	<licenses>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="repErro" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="540478ec-c5df-485c-87a2-f312c4e88d82">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="452" splitType="Stretch">
+			<image>
+				<reportElement x="20" y="70" width="531" height="381" uuid="84b1e680-da26-4dcb-9a5a-5678f8f36c6f"/>
+				<imageExpression><![CDATA["https://github.com/integraldominio/sisadmin-bi/raw/master/image1.PNG"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="20" y="8" width="190" height="30" uuid="2b89ed34-d49e-499a-bec8-0119252fe2cc"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[sisadmin-bi
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="38" width="220" height="18" uuid="54db23ee-d2b5-4ba7-bfdc-25ea53a06965"/>
+				<text><![CDATA[https://github.com/integraldominio/sisadmin-bi]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

@@ -51,6 +51,10 @@ buildNumber.properties
 
 ### Java
 
+target
+.project
+.classpath
+
 *.class
 
 # Mobile Tools for Java (J2ME)
