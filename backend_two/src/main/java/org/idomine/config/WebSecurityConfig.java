@@ -1,5 +1,7 @@
 package org.idomine.config;
 
+import java.util.Arrays;
+
 import org.idomine.security.JwtAuthenticationEntryPoint;
 import org.idomine.security.JwtAuthorizationTokenFilter;
 import org.idomine.security.JwtTokenUtil;
@@ -20,6 +22,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -58,12 +63,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+    
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5000"));
+        configuration.setAllowedMethods(Arrays.asList("GET","POST","DELETE"));
+        configuration.setAllowedHeaders(Arrays.asList("Origin","x-requested-With", "content-type", "accept","Authorization","x-xsrf-token","Application/Json"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }    
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
+         
+            
+        httpSecurity.cors().configurationSource(  corsConfigurationSource());
+        
             // we don't need CSRF because our token is invulnerable
-            .csrf().disable()
+           httpSecurity.csrf().disable()
 
             .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 

@@ -19,7 +19,6 @@ export enum RequestMethod {
 export class ApiService {
 
   headers = new HttpHeaders({
-    'Accept': 'application/json',
     'Content-Type': 'application/json'
   });
 
@@ -55,19 +54,19 @@ export class ApiService {
 
   private request(path: string, body: any, method = RequestMethod.Post, custemHeaders?: HttpHeaders): Observable<any> {
     const req = new HttpRequest(method, path, body, {
-      headers: custemHeaders || this.headers,
-      withCredentials: true
+      headers: custemHeaders || this.headers
     });
 
     return this.http.request(req)
-      .filter(response => response instanceof HttpResponse)
-      .map((response: HttpResponse<any>) => response.body)
+     // .filter(response => response instanceof HttpResponse)
+     // .map((response: HttpResponse<any>) => response.body)
       .catch(error => this.checkError(error));
   }
 
   // Display error if logged in, otherwise redirect to IDP
   private checkError(error: any): any {
     if (error && error.status === 401) {
+      console.log('>>>>');
       // this.redirectIfUnauth(error);
     } else {
       // this.displayError(error);

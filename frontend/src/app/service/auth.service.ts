@@ -19,11 +19,11 @@ export class AuthService {
 
   login(user) {
     const loginHeaders = new HttpHeaders({
-      'Accept': 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/json'
     });
-    const body = `username=${user.username}&password=${user.password}`;
-    return this.apiService.post(this.config.login_url, body, loginHeaders).map(() => {
+
+    const body =  JSON.stringify({username: user.username, password: user.password});
+    return this.apiService.post(this.config.login_url, body).map(() => {
       console.log("Login success");
       this.msg.open("Login success");
       this.userService.getMyInfo().subscribe();
