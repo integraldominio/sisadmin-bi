@@ -1,8 +1,7 @@
-package org.idomine.config;
+package org.idomine.application;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.service.ApiInfo;
@@ -10,7 +9,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
-@Profile({"dev","prod","tdd","teste","default"})
+//@Profile({"dev","prod","tdd","teste","default"})
 public class SwaggerConfiguration
 {
 

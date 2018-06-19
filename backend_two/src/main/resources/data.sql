@@ -1,7 +1,7 @@
-insert into hero(name) values('Black Widow');
-insert into hero(name) values('Superman');
-insert into hero(name) values('Rogue');
-insert into hero(name) values('Batman');
+--insert into hero(name) values('Black Widow');
+--insert into hero(name) values('Superman');
+--insert into hero(name) values('Rogue');
+--insert into hero(name) values('Batman');
 
 INSERT INTO USER ( USERNAME, PASSWORD, FIRSTNAME, LASTNAME, EMAIL, ENABLED, LASTPASSWORDRESETDATE) VALUES ('admin', '$2a$08$lDnHPz7eUkSi6ao14Twuau08mzhWrL4kyZGGU5xfiGALO/Vxd5DOi', 'admin', 'admin', 'admin@admin.com', 1, PARSEDATETIME('01-01-2016', 'dd-MM-yyyy'));
 INSERT INTO USER ( USERNAME, PASSWORD, FIRSTNAME, LASTNAME, EMAIL, ENABLED, LASTPASSWORDRESETDATE) VALUES ('user', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'user', 'user', 'enabled@user.com', 1, PARSEDATETIME('01-01-2016','dd-MM-yyyy'));

@@ -1,13 +1,16 @@
-package org.idomine.rest;
+package org.idomine.rest.person;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.idomine.domain.person.model.Person;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.List;
-
+@CrossOrigin(origins = "*")
 @RestController
 public class PersonRestService {
     private static final List<Person> persons;

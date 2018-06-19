@@ -1,4 +1,4 @@
-package org.idomine.rest.pdf;
+package org.idomine.rest.report;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,12 +6,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView;
 
+@CrossOrigin(origins = "*")
 @Controller
-public class ReportController
+public class ReportRestController
 {
     @Autowired
     private ApplicationContext appContext;

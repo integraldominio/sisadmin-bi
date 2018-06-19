@@ -1,4 +1,4 @@
-package org.idomine.rest;
+package org.idomine.domain.person.model;
 
 /**
  * Created by stephan on 11.03.16.

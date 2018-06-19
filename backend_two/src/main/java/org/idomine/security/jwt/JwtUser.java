@@ -1,4 +1,4 @@
-package org.idomine.security;
+package org.idomine.security.jwt;
 
 import java.util.Collection;
 import java.util.Date;

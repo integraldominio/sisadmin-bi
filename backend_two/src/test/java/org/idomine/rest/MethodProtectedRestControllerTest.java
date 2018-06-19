@@ -16,7 +16,7 @@ import static org.springframework.security.test.web.servlet.setup.SecurityMockMv
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.idomine.security.JwtTokenUtil;
+import org.idomine.security.jwt.JwtTokenUtil;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

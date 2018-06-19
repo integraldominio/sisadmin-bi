@@ -1,4 +1,4 @@
-package org.idomine.security;
+package org.idomine.security.jwt;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

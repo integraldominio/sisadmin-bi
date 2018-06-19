@@ -1,6 +1,6 @@
 package org.idomine.security.service;
 
-import org.idomine.security.JwtUserFactory;
+import org.idomine.security.jwt.JwtUserFactory;
 import org.idomine.security.model.User;
 import org.idomine.security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

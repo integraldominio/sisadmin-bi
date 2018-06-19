@@ -1,11 +1,13 @@
-package org.idomine.security.controller;
+package org.idomine.security.rest.auth;
 
 import java.util.Objects;
+
 import javax.servlet.http.HttpServletRequest;
 
-import org.idomine.security.JwtAuthenticationRequest;
-import org.idomine.security.JwtTokenUtil;
-import org.idomine.security.JwtUser;
+import org.idomine.security.exceptions.AuthenticationException;
+import org.idomine.security.jwt.JwtAuthenticationRequest;
+import org.idomine.security.jwt.JwtTokenUtil;
+import org.idomine.security.jwt.JwtUser;
 import org.idomine.security.service.JwtAuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,12 +20,14 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class AuthenticationRestController {
 

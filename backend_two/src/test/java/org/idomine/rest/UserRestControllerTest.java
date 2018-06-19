@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import org.idomine.security.JwtTokenUtil;
-import org.idomine.security.JwtUser;
-import org.idomine.security.JwtUserFactory;
+import org.idomine.security.jwt.JwtTokenUtil;
+import org.idomine.security.jwt.JwtUser;
+import org.idomine.security.jwt.JwtUserFactory;
 import org.idomine.security.model.Authority;
 import org.idomine.security.model.AuthorityName;
 import org.idomine.security.model.User;

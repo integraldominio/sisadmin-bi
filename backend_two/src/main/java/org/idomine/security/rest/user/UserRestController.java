@@ -1,17 +1,19 @@
-package org.idomine.security.controller;
+package org.idomine.security.rest.user;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.idomine.security.JwtTokenUtil;
-import org.idomine.security.JwtUser;
+import org.idomine.security.jwt.JwtTokenUtil;
+import org.idomine.security.jwt.JwtUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class UserRestController {
 

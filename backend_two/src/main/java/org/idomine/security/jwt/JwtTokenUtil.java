@@ -1,4 +1,4 @@
-package org.idomine.security;
+package org.idomine.security.jwt;
 
 import java.io.Serializable;
 import java.util.Date;
