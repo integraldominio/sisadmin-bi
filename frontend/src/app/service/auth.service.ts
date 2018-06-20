@@ -30,12 +30,12 @@ export class AuthService {
     });
   }
 
-  signup(user){
+  signup(user) {
     const signupHeaders = new HttpHeaders({
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     });
-    return this.apiService.post(this.config.signup_url, JSON.stringify(user), signupHeaders).map(() =>{
+    return this.apiService.post(this.config.signup_url, JSON.stringify(user), signupHeaders).map(() => {
       console.log('Sign up success');
       this.msg.open('Sign up success');
     });
@@ -45,7 +45,7 @@ export class AuthService {
     return this.apiService.get(this.config.logout_url, {})
       .map(() => {
         this.userService.currentUser = null;
-        this.msg.open("Logout success");
+        this.msg.open('Logout success');
       });
   }
 

@@ -70,6 +70,34 @@ public class AuthenticationRestController
         return ResponseEntity.badRequest().body(null);
     }
 
+    @GetMapping({ "/whoami" })
+    public ResponseEntity<?> whoami(HttpServletRequest request)
+    {
+        String authToken = request.getHeader(tokenHeader);
+        final String token = authToken.substring(7);
+        String username = jwtTokenUtil.getUsernameFromToken(token);
+        JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);
+        if (jwtTokenUtil.canTokenBeRefreshed(token, user.getLastPasswordResetDate()))
+        {
+            return ResponseEntity.ok( user );
+        }
+        return ResponseEntity.badRequest().body(null);
+    }    
+
+    @GetMapping({ "/authorities" })
+    public ResponseEntity<?> authorities(HttpServletRequest request)
+    {
+        String authToken = request.getHeader(tokenHeader);
+        final String token = authToken.substring(7);
+        String username = jwtTokenUtil.getUsernameFromToken(token);
+        JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);
+        if (jwtTokenUtil.canTokenBeRefreshed(token, user.getLastPasswordResetDate()))
+        {
+            return ResponseEntity.ok( user.getAuthorities() );
+        }
+        return ResponseEntity.badRequest().body(null);
+    }    
+    
     @ExceptionHandler({ AuthenticationException.class })
     public ResponseEntity<String> handleAuthenticationException(AuthenticationException e)
     {

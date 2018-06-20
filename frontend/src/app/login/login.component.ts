@@ -1,16 +1,12 @@
-import { Inject } from '@angular/core';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DisplayMessage } from '../shared/models/display-message';
-import { Subscription } from 'rxjs/Subscription';
-import {
-  UserService,
-  AuthService
-} from '../service';
-
-import { Observable } from 'rxjs/Observable';
+import { UserService} from './../service/user.service';
+import { AuthService } from './../service/auth.service';
 import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-login',
@@ -18,23 +14,21 @@ import { Subject } from 'rxjs/Subject';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
+
   title = 'Login';
   githubLink = 'https://github.com/integraldominio';
   form: FormGroup;
-
   /**
    * Boolean used in telling the UI
    * that the form has been submitted
    * and is awaiting a response
    */
   submitted = false;
-
   /**
    * Notification message from received
    * form request or router
    */
   notification: DisplayMessage;
-
   returnUrl: string;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
@@ -44,9 +38,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder
-  ) {
+  ) { }
 
-  }
 
   ngOnInit() {
     this.route.params
