@@ -3,11 +3,14 @@ package org.idomine.security.rest.auth;
 import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 
 import org.idomine.security.exceptions.AuthenticationException;
 import org.idomine.security.jwt.JwtAuthenticationRequest;
 import org.idomine.security.jwt.JwtTokenUtil;
 import org.idomine.security.jwt.JwtUser;
+import org.idomine.security.model.User;
+import org.idomine.security.repository.UserRepository;
 import org.idomine.security.service.JwtAuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -27,6 +30,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @CrossOrigin(origins = "*")
 @RestController
 public class AuthenticationRestController
@@ -40,7 +44,9 @@ public class AuthenticationRestController
     @Autowired
     @Qualifier("jwtUserDetailsService")
     private UserDetailsService userDetailsService;
-
+    @Autowired
+    private UserRepository userRepository;
+    
     @PostMapping({ "/auth" })
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException
     {
@@ -101,10 +107,13 @@ public class AuthenticationRestController
         return ResponseEntity.badRequest().body(null);
     }    
     
-    @PostMapping({ "/auth/registrer","/auth/signup" })
-    public ResponseEntity<?> register(HttpServletRequest request)
+    @PostMapping({ "/auth/register","/auth/signup" })
+    @Transactional
+    public ResponseEntity<?> register(@RequestBody User user )
     {
-        return ResponseEntity.badRequest().body(null);
+        userRepository.save(user);
+        return ResponseEntity.ok( user );
+        //return ResponseEntity.badRequest().body(null);
     }
 
     @GetMapping({ "/auth/password/tip" })
@@ -119,6 +128,11 @@ public class AuthenticationRestController
         return ResponseEntity.badRequest().body(null);
     }
     
+    @GetMapping({ "/auth/password/reset" })
+    public ResponseEntity<?> passordReset(HttpServletRequest request)
+    {
+        return ResponseEntity.badRequest().body(null);
+    }
     
     @ExceptionHandler({ AuthenticationException.class })
     public ResponseEntity<String> handleAuthenticationException(AuthenticationException e)
