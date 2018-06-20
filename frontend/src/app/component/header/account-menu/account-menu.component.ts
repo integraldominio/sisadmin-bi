@@ -28,8 +28,7 @@ export class AccountMenuComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout().subscribe(res => {
-      this.router.navigate(['/login']);
-    });
+    this.userService.logout();
+    this.router.navigate(['/login']);
   }
 }

@@ -43,5 +43,9 @@ export class UserService {
     return this.apiService.get(this.config.report_url);
   }
 
+  logout() {
+    this.currentUser = undefined;
+    localStorage.removeItem('currentUser');
+  }
 
 }
