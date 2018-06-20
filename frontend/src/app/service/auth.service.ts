@@ -24,8 +24,8 @@ export class AuthService {
 
     const body =  JSON.stringify({username: user.username, password: user.password});
     return this.apiService.post(this.config.login_url, body).map(() => {
-      console.log("Login success");
-      this.msg.open("Login success");
+      console.log('Login success');
+      this.msg.open('Login success');
       this.userService.getMyInfo().subscribe();
     });
   }
@@ -36,8 +36,8 @@ export class AuthService {
       'Content-Type': 'application/json'
     });
     return this.apiService.post(this.config.signup_url, JSON.stringify(user), signupHeaders).map(() =>{
-      console.log("Sign up success");
-      this.msg.open("Sign up success");
+      console.log('Sign up success');
+      this.msg.open('Sign up success');
     });
   }
 
