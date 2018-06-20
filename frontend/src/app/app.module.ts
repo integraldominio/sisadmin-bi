@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // material
 import {
@@ -44,6 +44,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthenticationService} from './_services/authentication.service';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
 
 // inicar app chamando factory method
 // export function initUserFactory(userService: UserService) {
@@ -94,7 +95,8 @@ import { AuthenticationService} from './_services/authentication.service';
     UserService,
     AuthenticationService,
     MatIconRegistry,
-    ConfigService
+    ConfigService,
+    JwtInterceptor
 // iniciar a app chamando método de service
 //    ,
 //    {
@@ -103,6 +105,11 @@ import { AuthenticationService} from './_services/authentication.service';
 //      'deps': [UserService],
 //      'multi': true
 //    }
+    , {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
