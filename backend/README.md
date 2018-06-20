@@ -1,77 +1,47 @@
-# Angular4 Spring Boot JWT Starter
-This sub-project is the backend server portion of the project.
+# JWT Spring Security Demo
 
-**Make sure you have Maven and Java 1.7 or greater**
+![Screenshot from running application](etc/screenshot-jwt-spring-security-demo.png?raw=true "Screenshot JWT Spring Security Demo")
 
-```bash
-# change directory to server
-cd angular-spring-starter/server
+## About
+This is just a simple demo for using **JSON Web Token (JWT)** with **Spring Security** and
+**Spring Boot 2**. This solution is partially based on the blog entry
+[REST Security with JWT using Java and Spring Security](https://www.toptal.com/java/rest-security-with-jwt-spring-security-and-java)
+and the demo project [Cerberus](https://github.com/brahalla/Cerberus). Thanks to the authors!
 
-# install the repo with mvn
-mvn install
+[![Build Status](https://travis-ci.org/szerhusenBC/jwt-spring-security-demo.svg?branch=master)](https://travis-ci.org/szerhusenBC/jwt-spring-security-demo)
 
-# start the server
-mvn spring-boot:run
+## Requirements
+This demo is build with with Maven 3 and Java 1.8.
 
-# the app will be running on port 8080
-# there are two built-in user accounts to demonstrate the differing levels of access to the endpoints:
-# - User - user:123
-# - Admin - admin:123
+## Usage
+Just start the application with the Spring Boot maven plugin (`mvn spring-boot:run`). The application is
+running at [http://localhost:8080](http://localhost:8080).
+
+There are three user accounts present to demonstrate the different levels of access to the endpoints in
+the API and the different authorization exceptions:
+```
+Admin - admin:admin
+User - user:password
+Disabled - disabled:password (this user is disabled)
 ```
 
-
-## File Structure
+There are three endpoints that are reasonable for the demo:
 ```
-angular-spring-starter/server
- ├──src/                                                        * our source files
- │   ├──main
- │   │   ├──java.com.bfwg
- │   │   │   ├──config
- │   │   │   │   └──WebSecurityConfig.java                      * security configureation file, all the important things.
- │   │   │   ├──model
- │   │   │   │   ├──Authority.java
- │   │   │   │   ├──DateModel.java                              * date model class extend by other model class, this adds create_at and update_at fields.
- │   │   │   │   ├──DeleteableModel.java                        * similar as date model class, extend by other class, this adds deleted_at field.
- │   │   │   │   ├──UserTokenState.java                         * stores the token states like token_key and token_ttl.
- │   │   │   │   └──User.java                                   * our main user model which implements UserDetails.
- │   │   │   ├──repository                                      * repositories folder for accessing database
- │   │   │   │   ├──DeleteableModelRepository.java              * base repository that overwrites the findAll method.
- │   │   │   │   └──UserRepository.java
- │   │   │   ├──rest                                            * rest endpoint folder
- │   │   │   │   ├──FooController.java                          * public REST controller.
- │   │   │   │   ├──AuthenticationController.java               * auth related REST controller.
- │   │   │   │   └──UserController.java                         * user/admin REST controller to handle User related requests
- │   │   │   ├──security                                        * Security related folder(JWT, filters)
- │   │   │   │   ├──auth
- │   │   │   │   │   ├──AuthenticationFailureHandler.java       * login fail handler, configrued in WebSecurityConfig
- │   │   │   │   │   ├──AuthenticationSuccessHandler.java       * login success handler, configrued in WebSecurityConfig
- │   │   │   │   │   ├──AnonAuthentication.java                 * it creates Anonymous user authentication object. If the user doesn't have a token, we mark the user as an anonymous visitor.
- │   │   │   │   │   ├──LogoutSuccess.java                      * controls the behavior after sign out.
- │   │   │   │   │   ├──RestAuthenticationEntryPoint.java       * logout success handler, configrued in WebSecurityConfig
- │   │   │   │   │   ├──TokenAuthenticationFilter.java          * the JWT token filter, configured in WebSecurityConfig
- │   │   │   │   │   └──TokenBasedAuthentication.java           * this is our custom Authentication class and it extends AbstractAuthenticationToken.
- │   │   │   │   └──TokenHelper.java                            * token helper class that responsible to token generation, validation, etc.
- │   │   │   ├──service
- │   │   │   │   ├──impl
- │   │   │   │   │   ├──CustomUserDetailsService.java           * custom UserDatilsService implementataion, tells formLogin() where to check username/password
- │   │   │   │   │   └──UserServiceImpl.java
- │   │   │   │   └──UserService.java
- │   │   │   └──Application.java                                * Application main enterance
- │   │   └──recources
- │   │       ├──static                                          * Angular2 frontend code will get built and served from here.
- │   │       ├──application.yml                                 * application variables are configured here
- │   │       ├──banner.txt                                      * application banner :^)
- │   │       └──import.sql                                      * h2 database query(table creation)
- │   └──test                                                    * Junit test folder
- └──pom.xml                                                     * what maven uses to manage it's dependencies
+/auth - authentication endpoint with unrestricted access
+/persons - an example endpoint that is restricted to authorized users (a valid JWT token must be present in the request header)
+/protected - an example endpoint that is restricted to authorized users with the role 'ROLE_ADMIN' (a valid JWT token must be present in the request header)
 ```
 
-## Configuration
-- **WebSecurityConfig.java**: The server-side authentication configurations.
-- **application.yml**: Application level properties i.e the token expire time, token secret etc. You can find a reference of all application properties [here](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html).
-- **JWT token TTL**: JWT Tokens are configured to expire after 10 minutes, you can get a new token by signing in again.
-- **Using a different database**: This Starter kit is using an embedded H2 database that is automatically configured by Spring Boot. If you want to connect to another database you have to specify the connection in the *application.yml* in the resource directory. Here is an example for a MySQL DB:
+I've written a small Javascript client and put some comments in the code that hopefully makes this demo
+understandable.
 
+### Generating password hash for new users
+
+I'm using [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) to encode passwords. Your can generate your hashes with this simple tool: [Bcrypt Generator](https://www.bcrypt-generator.com)
+
+### Using another database
+
+Actually this demo is using an embedded H2 database that is automatically configured by Spring Boot. If you want to connect to another database you have to specify the connection in the *application.yml* in the resource directory. Here is an example for a MySQL DB:
 
 ```
 spring:
@@ -85,7 +55,47 @@ spring:
     password: myPassword
     driver-class-name: com.mysql.jdbc.Driver
 ```
+
 *Hint: For other databases like MySQL sequences don't work for ID generation. So you have to change the GenerationType in the entity beans to 'AUTO' or 'IDENTITY'.*
 
-### Generating password hash for users
-I'm using [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) to encode passwords. Your can generate your hashes with this simple tool: [BCrypt Calculator](https://www.dailycred.com/article/bcrypt-calculator)
+You can find a reference of all application properties [here](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html).
+
+### Using Flyway
+
+https://github.com/szerhusenBC/jwt-spring-security-demo/issues/81
+
+## Docker
+This project has a docker image. You can find it at [https://hub.docker.com/r/hubae/jwt-spring-security-demo/](https://hub.docker.com/r/hubae/jwt-spring-security-demo/).
+
+## Questions
+If you have project related questions please take a look at the [past questions](https://github.com/szerhusenBC/jwt-spring-security-demo/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%2Cclosed%20label%3Aquestion%20) or create a new ticket with your question.
+
+*If you have questions that are not directly related to this project (e.g. common questions to the Spring Framework or Spring Security etc.) please search the web or look at [Stackoverflow](http://www.stackoverflow.com).*
+
+Sorry for that but I'm very busy right now and don't have much time.
+
+## Interesting projects
+
+* [spring-security-pac4j](https://github.com/pac4j/spring-security-pac4j) a Spring Boot integration for Pac4j (a Java security engine that covers JWT beside others)
+* For more complex microservice environments take a look here: [Using JWT with Spring Security OAuth](http://www.baeldung.com/spring-security-oauth-jwt)
+
+## External resources
+
+Dan Vega (https://twitter.com/therealdanvega) created a video that explained this project quite fine. Thanks to him!
+
+https://youtu.be/mD3vmgksvz8
+
+## Creator
+
+**Stephan Zerhusen**
+
+* <https://twitter.com/stzerhus>
+* <https://github.com/szerhusenBC>
+
+## Copyright and license
+
+The code is released under the [MIT license](LICENSE?raw=true).
+
+---------------------------------------
+
+Please feel free to send me some feedback or questions!
