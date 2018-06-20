@@ -15,22 +15,40 @@
       <p [class]="notification.msgType" *ngIf="notification">{{notification.msgBody}}</p>
 
       <form *ngIf="!submitted" [formGroup]="form" (ngSubmit)="onSubmit()" #signupForm="ngForm">
+
         <mat-form-field>
           <label>Username: </label>
           <input matInput formControlName="username" required>
         </mat-form-field>
+
         <mat-form-field>
           <label>Password: </label>
           <input matInput formControlName="password" required type="password">
         </mat-form-field>
+
         <mat-form-field>
           <label>First Name: </label>
           <input matInput formControlName="firstname">
         </mat-form-field>
+
         <mat-form-field>
           <label>Last Name: </label>
           <input matInput formControlName="lastname">
         </mat-form-field>
+
+        <mat-form-field>
+          <label>e-mail: </label>
+          <input matInput formControlName="email" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <label>Telefone: </label>
+          <input matInput formControlName="phone" required>
+        </mat-form-field>
+
+
+
+
         <button type="submit" [disabled]="!signupForm.form.valid" mat-raised-button color="primary">Sign up</button>
       </form>
       <br>
