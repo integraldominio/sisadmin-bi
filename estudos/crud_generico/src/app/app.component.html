@@ -1,0 +1,19 @@
+
+<button mat-button (click)="listAll()">List All</button>
+<button mat-button (click)="listPrimeiro()">List id:1</button>
+<button mat-button (click)="searchParams()">Search param: ?id=1</button>
+<button mat-button (click)="addPost()">Add post</button>
+<button mat-button (click)="deletePost()">Delete First post </button>
+<button mat-button (click)="updateFist()">Update post id 2</button>
+
+<h1>Post 1</h1>
+<P>{{ post?.id }}</P>
+<P>{{ post?.title }}</P>
+<P>{{ post?.author }}</P>
+
+<h1>Lista Posts</h1>
+<ng-container *ngFor="let p of posts">
+    <P>{{ p?.id }}</P>
+    <P>{{ p?.title }}</P>
+    <P>{{ p?.author }}</P>
+</ng-container>
