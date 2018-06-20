@@ -22,30 +22,28 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class AuthenticationRestController {
-
+public class AuthenticationRestController
+{
     @Value("${jwt.header}")
     private String tokenHeader;
-
     @Autowired
     private AuthenticationManager authenticationManager;
-
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
-
     @Autowired
     @Qualifier("jwtUserDetailsService")
     private UserDetailsService userDetailsService;
 
-    @RequestMapping(value = "${jwt.route.authentication.path}", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException {
+    @PostMapping({ "/auth" })
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException
+    {
 
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
@@ -57,38 +55,45 @@ public class AuthenticationRestController {
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
     }
 
-    @RequestMapping(value = "${jwt.route.authentication.refresh}", method = RequestMethod.GET)
-    public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request) {
+    @GetMapping({ "/refresh" })
+    public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request)
+    {
         String authToken = request.getHeader(tokenHeader);
         final String token = authToken.substring(7);
         String username = jwtTokenUtil.getUsernameFromToken(token);
         JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);
-
-        if (jwtTokenUtil.canTokenBeRefreshed(token, user.getLastPasswordResetDate())) {
+        if (jwtTokenUtil.canTokenBeRefreshed(token, user.getLastPasswordResetDate()))
+        {
             String refreshedToken = jwtTokenUtil.refreshToken(token);
             return ResponseEntity.ok(new JwtAuthenticationResponse(refreshedToken));
-        } else {
-            return ResponseEntity.badRequest().body(null);
         }
+        return ResponseEntity.badRequest().body(null);
     }
 
-    @ExceptionHandler({AuthenticationException.class})
-    public ResponseEntity<String> handleAuthenticationException(AuthenticationException e) {
+    @ExceptionHandler({ AuthenticationException.class })
+    public ResponseEntity<String> handleAuthenticationException(AuthenticationException e)
+    {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
     }
 
     /**
      * Authenticates the user. If something is wrong, an {@link AuthenticationException} will be thrown
      */
-    private void authenticate(String username, String password) {
+    private void authenticate(String username, String password)
+    {
         Objects.requireNonNull(username);
         Objects.requireNonNull(password);
 
-        try {
+        try
+        {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-        } catch (DisabledException e) {
+        }
+        catch (DisabledException e)
+        {
             throw new AuthenticationException("User is disabled!", e);
-        } catch (BadCredentialsException e) {
+        }
+        catch (BadCredentialsException e)
+        {
             throw new AuthenticationException("Bad credentials!", e);
         }
     }
