@@ -55,7 +55,7 @@ public class AuthenticationRestController
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
     }
 
-    @GetMapping({ "/refresh" })
+    @GetMapping({ "/auth/refresh" })
     public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request)
     {
         String authToken = request.getHeader(tokenHeader);
@@ -70,9 +70,12 @@ public class AuthenticationRestController
         return ResponseEntity.badRequest().body(null);
     }
 
-    @GetMapping({ "/whoami" })
+    @GetMapping({ "/auth/whoami" })
     public ResponseEntity<?> whoami(HttpServletRequest request)
     {
+        // Authorization = 
+        // token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUzMDEyNjM5OSwiaWF0IjoxNTI5NTIxNTk5fQ.1bSdXzCAm5mY6Vj7w2K_WWM2xxK5HDc7rG6WVzQOC1bGekErFm6uozEjQGgYZNZxFVb1IKc9ZtEoJNAyCkcGNg
+        
         String authToken = request.getHeader(tokenHeader);
         final String token = authToken.substring(7);
         String username = jwtTokenUtil.getUsernameFromToken(token);
@@ -84,7 +87,7 @@ public class AuthenticationRestController
         return ResponseEntity.badRequest().body(null);
     }    
 
-    @GetMapping({ "/authorities" })
+    @GetMapping({ "/auth/authorities" })
     public ResponseEntity<?> authorities(HttpServletRequest request)
     {
         String authToken = request.getHeader(tokenHeader);
@@ -97,6 +100,25 @@ public class AuthenticationRestController
         }
         return ResponseEntity.badRequest().body(null);
     }    
+    
+    @PostMapping({ "/auth/registrer","/auth/signup" })
+    public ResponseEntity<?> register(HttpServletRequest request)
+    {
+        return ResponseEntity.badRequest().body(null);
+    }
+
+    @GetMapping({ "/auth/password/tip" })
+    public ResponseEntity<?> passwordTip(HttpServletRequest request)
+    {
+        return ResponseEntity.badRequest().body(null);
+    }
+
+    @GetMapping({ "/auth/password/change" })
+    public ResponseEntity<?> passordChange(HttpServletRequest request)
+    {
+        return ResponseEntity.badRequest().body(null);
+    }
+    
     
     @ExceptionHandler({ AuthenticationException.class })
     public ResponseEntity<String> handleAuthenticationException(AuthenticationException e)

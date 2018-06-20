@@ -1,0 +1,107 @@
+{
+	"variables": [],
+	"info": {
+		"name": "BI",
+		"_postman_id": "fc189073-046a-373b-ee2c-91bc0f4dc241",
+		"description": "sisadmin-bi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/report",
+			"request": {
+				"url": "http://localhost:8080/api/report",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "w3423423432",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/auth",
+			"request": {
+				"url": "http://localhost:8080/auth",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n \t\"username\":\"admin\",\n \t\"password\":\"admin\"\n }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/auth/whoami",
+			"request": {
+				"url": "http://localhost:8080/auth/whoami",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUzMDEyNjY4OSwiaWF0IjoxNTI5NTIxODg5fQ.rfZQWe3YuFwDInxBjWSpgxNXOHiepp7vqSUhfN8pOnZ_zIoX7aev2nLEh1BcqELKgZXeB1K2aDhCkCh4fxYQDw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/auth/authorities",
+			"request": {
+				"url": "http://localhost:8080/auth/refresh",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUzMDEyNjY4OSwiaWF0IjoxNTI5NTIxODg5fQ.rfZQWe3YuFwDInxBjWSpgxNXOHiepp7vqSUhfN8pOnZ_zIoX7aev2nLEh1BcqELKgZXeB1K2aDhCkCh4fxYQDw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/auth/authorities",
+			"request": {
+				"url": "http://localhost:8080/auth/authorities",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUzMDEyNjY4OSwiaWF0IjoxNTI5NTIxODg5fQ.rfZQWe3YuFwDInxBjWSpgxNXOHiepp7vqSUhfN8pOnZ_zIoX7aev2nLEh1BcqELKgZXeB1K2aDhCkCh4fxYQDw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

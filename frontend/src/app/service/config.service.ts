@@ -12,9 +12,13 @@ export class ConfigService {
 
   private _logout_url = this._api_url + '/logout';
 
-  private _change_password_url = this._api_url + '/changePassword';
+  private _change_password_url = this._api_url + '/auth/password/change';
 
-  private _whoami_url = this._api_url + '/whoami';
+  private _tip_password_url = this._api_url + '/auth/password/tip';
+
+  private _tip_autorities_url = this._api_url + '/auth/autorities';
+
+  private _whoami_url = this._api_url + '/auth/whoami';
 
   private _user_url = this._api_url + '/user';
 

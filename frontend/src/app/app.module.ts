@@ -97,15 +97,18 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
     MatIconRegistry,
     ConfigService,
     JwtInterceptor
-// iniciar a app chamando método de service
+
 //    ,
 //    {
+//     iniciar a app chamando método de service
 //     'provide': APP_INITIALIZER,
 //      'useFactory': initUserFactory,
 //      'deps': [UserService],
 //      'multi': true
 //    }
+
     , {
+      /// iterceptar requisioes http e colocar token
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
