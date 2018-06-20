@@ -10,8 +10,8 @@ export class MessageService {
     private msg: MatSnackBar
   ) { }
 
-  info(message: string) {
-    this.msg.open(message);
+  info(message: string, action?: string) {
+    this.msg.open(message, action, { duration: 2000});
   }
 
   erro(message: string) {

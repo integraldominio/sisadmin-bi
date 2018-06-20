@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService, Post } from './services/post.service';
 import { QueryOptions } from './resource.service';
+import { MessageService } from './message.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ export class AppComponent implements OnInit {
   posts: Array<Post>;
 
   constructor(
-     private postService: PostService
+     private postService: PostService,
+     private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   listAll() {
-    this.postService.listAll().subscribe(d2 => this.posts = d2 as Array<Post>);
+    this.postService.listAll().subscribe(d2 => this.setPosts( d2 as Array<Post> ));
   }
 
   deletePost() {
@@ -38,10 +40,17 @@ export class AppComponent implements OnInit {
     }
   }
 
+  deletePostSemVerificacao() {
+    this.postService.delete( 0 ).subscribe( _ => this.listAll() );
+  }
+
+
   updateFist() {
     if ( this.posts) {
       const updatePost: Post = {id: 1  , title: 'update Post 1' , author: 'lyndon Update'};
-      this.postService.update(updatePost).subscribe( _ => this.listAll() );
+      this.postService
+          .update(updatePost)
+          .subscribe( _ => this.listAll() , error => this.messageService.info('Erro Uopdate') ) ;
       }
   }
 
@@ -61,6 +70,9 @@ export class AppComponent implements OnInit {
     this.postService.searchParams('title=post%').subscribe(d2 => this.posts = d2 as Array<Post> );
   }
 
+  setPosts ( p: Array<Post>) {
+    this.posts =  p;
+  }
 
 }
 

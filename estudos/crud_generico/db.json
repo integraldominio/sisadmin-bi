@@ -1,31 +1,5 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "Post 1",
-      "author": "lyndon"
-    },
-    {
-      "id": 2,
-      "title": "Post 2",
-      "author": "lyndon"
-    },
-    {
-      "id": 3,
-      "title": "Post 3",
-      "author": "lyndon"
-    },
-    {
-      "id": 4,
-      "title": "Post 4",
-      "author": "lyndon"
-    },
-    {
-      "id": 5,
-      "title": "Post 5",
-      "author": "lyndon"
-    }
-  ],
+  "posts": [],
   "comments": [],
   "profile": {
     "name": "typicode"

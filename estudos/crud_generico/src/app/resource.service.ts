@@ -41,7 +41,7 @@ export class ResourceService<T extends Resource> {
     public read(id: number): Observable<T> {
       return this.http.get<T>(`${this.url}/${this.endpoint}/${id}`).pipe(
         tap( _ => this.log(`Carrefando id=${id}`)),
-        catchError(this.handleError<any>(`getHero id=${id}`))
+        catchError(this.handleError<any>(`${this.endpoint} id=${id}`))
       );
     }
 
@@ -64,7 +64,7 @@ export class ResourceService<T extends Resource> {
     public searchParams(params: string): Observable<T[]> {
       return this.http.get<T[]>(`${this.url}/${this.endpoint}?${params}`)
       .pipe(
-        tap(_ => this.log(`Encontrados...`)),
+        /*tap(_ => this.log(`Encontrados...`))*/,
         catchError(this.handleError<T[]>('Erro Busando...', []))
       );
   }
@@ -72,29 +72,38 @@ export class ResourceService<T extends Resource> {
     public listAll() {
       return this.http.get<T[]>(`${this.url}/${this.endpoint}`)
       .pipe(
-        tap(_ => this.log(`Encontrados...`)),
+        /* tap( _ => this.log(`List All...`)) */,
         catchError(this.handleError<T[]>('Erro Busando...', []))
       );
   }
 
     public delete(id: number) {
+      if ( id as number > 0 ) {
       return this.http.delete<T>(`${this.url}/${this.endpoint}/${id}`, httpOptions)
       .pipe(
         tap(_ => this.log(`Deletado id=${id}`)),
         catchError(this.handleError<T>('Erro Deletando...'))
       );
+      }
+      this.log('Informe ID válido');
     }
 
-    private log(message: string) {
-      this.messageService.info( message );
+    private log(message: string, acao?: string) {
+      this.messageService.info( message, acao );
     }
 
     private handleError<S> (operation = 'operation', result?: S) {
       return (error: any): Observable<S> => {
         // TODO: send the error to remote logging infrastructure
+        console.log('>>> Erro capturado...');
         console.error(error); // log to console instead
         // TODO: better job of transforming error for user consumption
-        this.log(`${operation} failed: ${error.message}`);
+
+        let msg: string;
+        if ( error.status === 404) {
+          msg = ' Não encontrado!';
+        }
+        this.log(`${operation.toUpperCase()}`, `${msg}`);
         // Let the app keep running by returning an empty result.
         return of(result as S);
       };
