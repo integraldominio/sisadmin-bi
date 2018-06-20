@@ -26,8 +26,7 @@ export class ApiService {
 
   get(path: string, args?: any): Observable<any> {
     const options = {
-      headers: this.headers,
-      withCredentials: true
+      headers: this.headers
     };
 
     if (args) {
