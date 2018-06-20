@@ -37,7 +37,6 @@ import {
   ApiService,
   AuthService,
   UserService,
-  FooService,
   ConfigService
 } from './service';
 import { ChangePasswordComponent } from './change-password/change-password.component';
@@ -88,7 +87,6 @@ export function initUserFactory(userService: UserService) {
     LoginGuard,
     GuestGuard,
     AdminGuard,
-    FooService,
     AuthService,
     ApiService,
     UserService,
