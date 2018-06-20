@@ -13,6 +13,7 @@ export class UserService {
   ) { }
 
   initUser() {
+
     const promise = this.apiService.get(this.config.refresh_token_url).toPromise()
     .then(res => {
       if (res.access_token !== null) {

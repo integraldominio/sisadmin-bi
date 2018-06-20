@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { MessageService } from './../_services/message.service';
-import { ResourceService } from './../_services//resource.service';
+import { MessageService } from '../_services/message.service';
+import { ResourceService } from '../_services/resource.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ConfigService } from './../_config/config.service';
+import { ConfigService } from '../service/config.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostService extends ResourceService<Post> {
+export class UserxService extends ResourceService<Post> {
 
   constructor(
     httpClient: HttpClient,

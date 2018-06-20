@@ -2,11 +2,15 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DisplayMessage } from '../shared/models/display-message';
-import { UserService} from './../service/user.service';
-import { AuthService } from './../service/auth.service';
+import { UserService} from '../service/user.service';
+import { AuthService } from '../service/auth.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
+import { UserxService } from '../_user/userx.service';
+import { first } from 'rxjs/operators';
+import { AuthenticationService } from '../_services/authentication.service';
+
 
 @Component({
   selector: 'app-login',
@@ -37,7 +41,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userApiService: UserxService,
+    private authenticationService: AuthenticationService
   ) { }
 
 
@@ -61,7 +67,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onResetCredentials() {
-    this.userService.resetCredentials()
+/*     this.userService.resetCredentials()
     .takeUntil(this.ngUnsubscribe)
     .subscribe(res => {
       if (res.result === 'success') {
@@ -70,7 +76,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         alert('Server error');
       }
     });
-  }
+ */  }
 
   repository() {
     window.location.href = this.githubLink;
@@ -83,7 +89,24 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.notification = undefined;
     this.submitted = true;
 
-    this.authService.login(this.form.value)
+
+    this.authenticationService.login(this.form.value.username, this.form.value.password)
+    .delay(1000)
+    .pipe(first())
+    .subscribe(
+        data => {
+            this.router.navigate([this.returnUrl]);
+        },
+        error => {
+           // this.error = error;
+           // this.loading = false;
+           this.submitted = false;
+           this.notification = { msgType: 'error', msgBody: 'Incorrect username or password.' };
+        });
+
+
+
+/*     this.authService.login(this.form.value)
     // show me the animation
     .delay(1000)
     .subscribe(data => {
@@ -93,7 +116,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     error => {
       this.submitted = false;
       this.notification = { msgType: 'error', msgBody: 'Incorrect username or password.' };
-    });
+    }); */
 
   }
 

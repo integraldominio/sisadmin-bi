@@ -43,10 +43,12 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AdminComponent } from './admin/admin.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthenticationService} from './_services/authentication.service';
 
-export function initUserFactory(userService: UserService) {
-    return () => userService.initUser();
-}
+// inicar app chamando factory method
+// export function initUserFactory(userService: UserService) {
+//     return () => userService.initUser();
+// }
 
 @NgModule({
   declarations: [
@@ -90,14 +92,17 @@ export function initUserFactory(userService: UserService) {
     AuthService,
     ApiService,
     UserService,
-    ConfigService,
+    AuthenticationService,
     MatIconRegistry,
-    {
-      'provide': APP_INITIALIZER,
-      'useFactory': initUserFactory,
-      'deps': [UserService],
-      'multi': true
-    }
+    ConfigService
+// iniciar a app chamando método de service
+//    ,
+//    {
+//     'provide': APP_INITIALIZER,
+//      'useFactory': initUserFactory,
+//      'deps': [UserService],
+//      'multi': true
+//    }
   ],
   bootstrap: [AppComponent]
 })

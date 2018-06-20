@@ -28,6 +28,10 @@ export class ConfigService {
 
   private _report_url = this._api_url + '/report'
 
+  public getApiUrl() {
+
+    return this._api_url;
+  }
 
   get reset_credentials_url(): string {
       return this._reset_credentials_url;
