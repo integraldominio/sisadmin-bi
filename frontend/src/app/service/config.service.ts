@@ -16,9 +16,11 @@ export class ConfigService {
 
   private _tip_password_url = this._api_url + '/auth/password/tip';
 
-  private _tip_autorities_url = this._api_url + '/auth/autorities';
+  private _tip_autorities_url = this._api_url + '/auth/authorities';
 
   private _whoami_url = this._api_url + '/auth/whoami';
+
+  private _signup_url = this._api_url + '/auth/signup';
 
   private _user_url = this._api_url + '/user';
 
@@ -27,8 +29,6 @@ export class ConfigService {
   private _reset_credentials_url = this._user_url + '/reset-credentials';
 
   private _foo_url = this._api_url + '/foo';
-
-  private _signup_url = this._api_url + '/signup';
 
   private _report_url = this._api_url + '/report'
 
