@@ -10,7 +10,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
 //@Profile({"dev","prod","tdd","teste","default"})
-public class SwaggerConfiguration
+public class SwaggerConfig
 {
 
     @Bean
