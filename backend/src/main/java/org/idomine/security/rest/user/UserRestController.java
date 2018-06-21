@@ -28,6 +28,14 @@ public class UserRestController {
     @Qualifier("jwtUserDetailsService")
     private UserDetailsService userDetailsService;
 
+   // Exemplo: @PreAuthorize  
+   // @PreAuthorize("hasRole('ROLE_USER')")
+   // public interface ParkrunCourseRepository extends CrudRepository<ParkrunCourse, Long> {
+   //     @Override
+   //     @PreAuthorize("hasRole('ROLE_ADMIN')")
+   //     ParkrunCourse save(ParkrunCourse parkrunCourse);
+   // }    
+    
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "user", method = RequestMethod.GET)
     public JwtUser getAuthenticatedUser(HttpServletRequest request) {
