@@ -1,3 +1,5 @@
+estudos/api_express/package-lock.json 
+estudos/file_upload/package-lock.json
 frontend/package-lock.json
 frontend/.*
 frontend/*.tgz
