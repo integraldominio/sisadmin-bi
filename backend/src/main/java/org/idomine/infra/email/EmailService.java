@@ -1,15 +1,14 @@
 package org.idomine.infra.email;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class EmailService
 {
 
-    @Autowired
+  //  @Autowired
     public JavaMailSender emailSender;
 
     public void sendSimpleMessage(String to, String subject, String text)
