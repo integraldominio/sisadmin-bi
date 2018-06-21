@@ -44,7 +44,7 @@ export class UserService {
   }
 
   logout() {
-    this.currentUser = undefined;
+    this.currentUser = null;
     localStorage.removeItem('currentUser');
   }
 

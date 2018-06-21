@@ -76,29 +76,27 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
+
     /**
      * Innocent until proven guilty
      */
     this.notification = undefined;
     this.submitted = true;
 
-    this.authService.signup(this.form.value)
-    // show me the animation
-    .delay(1000)
-    .subscribe(data => {
-      console.log(data);
-      this.authService.login(this.form.value).subscribe(data =>{
-        this.userService.getMyInfo().subscribe();
-      })
-      this.router.navigate([this.returnUrl]);
-    },
-    error => {
-      this.submitted = false;
-      console.log("Sign up error" + JSON.stringify(error));
-      this.notification = { msgType: 'error', msgBody: error['error'].errorMessage };
+    this.authService
+      .signup(this.form.value)
+      .delay(1000)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate([this.returnUrl]);
+        },
+      error => {
+        this.submitted = false;
+          console.log('Sign up error' + JSON.stringify(error));
+          this.notification = { msgType: 'error', msgBody: error['error'].errorMessage };
     });
 
   }
-
 
 }

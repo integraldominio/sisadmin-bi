@@ -22,8 +22,21 @@ export class AuthenticationService {
             }));
     }
 
-    logout() {
-        // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+    getToken(): String {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const token = currentUser && currentUser.token;
+      return token ? token : '';
     }
+
+    isLoggedIn(): boolean {
+      const token: String = this.getToken();
+      return token && token.length > 0;
+    }
+
+    logout(): void {
+      // clear token remove user from local storage to log user out
+      localStorage.removeItem('currentUser');
+    }
+
+
 }

@@ -4,7 +4,7 @@ import { ApiService } from './api.service';
 import { UserService } from './user.service';
 import { ConfigService } from './config.service';
 import { MatSnackBar } from '@angular/material';
-
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
@@ -31,14 +31,13 @@ export class AuthService {
   }
 
   signup(user) {
-    const signupHeaders = new HttpHeaders({
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    });
-    return this.apiService.post(this.config.signup_url, JSON.stringify(user), signupHeaders).map(() => {
-      console.log('Sign up success');
-      this.msg.open('Sign up success');
-    });
+    return this.apiService.post(this.config.signup_url, JSON.stringify(user))
+    .pipe(
+      tap( () => {
+                  console.log('Sign up success');
+                  this.msg.open('Sign up success');
+                } )
+    )
   }
 
   logout() {

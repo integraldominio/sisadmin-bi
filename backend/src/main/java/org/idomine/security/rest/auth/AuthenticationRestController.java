@@ -1,5 +1,6 @@
 package org.idomine.security.rest.auth;
 
+import java.util.Date;
 import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
@@ -111,6 +112,8 @@ public class AuthenticationRestController
     @Transactional
     public ResponseEntity<?> register(@RequestBody User user )
     {
+        user.setEnabled(true);
+        user.setLastPasswordResetDate(new Date());
         userRepository.save(user);
         return ResponseEntity.ok( user );
         //return ResponseEntity.badRequest().body(null);

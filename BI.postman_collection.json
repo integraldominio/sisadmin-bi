@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "BI",
-		"_postman_id": "fc189073-046a-373b-ee2c-91bc0f4dc241",
+		"_postman_id": "e49e3a66-a7d0-4de2-4254-6eafbece1e49",
 		"description": "sisadmin-bi",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -64,13 +64,16 @@
 						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/auth/authorities",
+			"name": "http://localhost:8080/auth/refresh",
 			"request": {
 				"url": "http://localhost:8080/auth/refresh",
 				"method": "GET",
@@ -87,18 +90,26 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/auth/authorities",
+			"name": "http://localhost:8080/auth/signup",
 			"request": {
-				"url": "http://localhost:8080/auth/authorities",
-				"method": "GET",
+				"url": "http://localhost:8080/auth/signup",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
 						"value": "token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUzMDEyNjY4OSwiaWF0IjoxNTI5NTIxODg5fQ.rfZQWe3YuFwDInxBjWSpgxNXOHiepp7vqSUhfN8pOnZ_zIoX7aev2nLEh1BcqELKgZXeB1K2aDhCkCh4fxYQDw",
 						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": " {\n \t\"username\":\"lyndon\",\n \t\"password\":\"1234\",\n \t\"firstname\":\"lyndon\",\n \t\"lastname\":\"tavares\",\n \t\"phone\":\"(45)99990000\",\n \t\"email\":\"integraldominio@gmail.com\"\n }"
+				},
 				"description": ""
 			},
 			"response": []
