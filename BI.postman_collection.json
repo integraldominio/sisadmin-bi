@@ -90,7 +90,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/auth/signup",
+			"name": "http://localhost:8080/authorities",
 			"request": {
 				"url": "http://localhost:8080/auth/signup",
 				"method": "POST",
@@ -109,6 +109,31 @@
 				"body": {
 					"mode": "raw",
 					"raw": " {\n \t\"username\":\"lyndon\",\n \t\"password\":\"1234\",\n \t\"firstname\":\"lyndon\",\n \t\"lastname\":\"tavares\",\n \t\"phone\":\"(45)99990000\",\n \t\"email\":\"integraldominio@gmail.com\"\n }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/user",
+			"request": {
+				"url": "http://localhost:8080/user",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTUzMDE0NzkyMywiaWF0IjoxNTI5NTQzMTIzfQ.XycohVg7g4nS-DGYn6Mc6UmcImM9lOqpRnUF_h1QbKcXDR5tRW3hQDuz88E0cSdeH5tBXJvzwTrBMOHMmEsuWA",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n \t\"username\":\"lyndon2\",\n \t\"password\":\"1234\",\n \t\"firstname\":\"lyndon\",\n \t\"lastname\":\"tavares\",\n \t\"phone\":\"(45)99990000\",\n \t\"email\":\"integraldominio@gmail.com\"\n }"
 				},
 				"description": ""
 			},

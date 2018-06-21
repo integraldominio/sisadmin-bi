@@ -1,11 +1,12 @@
 package org.idomine.security.model;
 
 public enum AuthorityName {
-    R_USER, R_ADMIN, 
-    R_REPORT, 
-    G_PASSWORD_CHANGE, 
-    G_PASSWORD_CHANGE_ALL, 
-    G_USER, G_USER_CREATE, 
-    G_USER_UPDATE, 
-    G_USER_DELETE
+    ROLE_USER, 
+    ROLE_ADMIN, 
+    ROLE_REPORT, 
+    ROLE_PASSWORD_CHANGE, 
+    ROLE_PASSWORD_CHANGE_ALL, 
+    ROLE_USER_CREATE, 
+    ROLE_USER_UPDATE, 
+    ROLE_USER_DELETE
 }

@@ -66,7 +66,7 @@ public class UserRestControllerTest {
 
         Authority authority = new Authority();
         authority.setId(1L);
-        authority.setName(AuthorityName.R_ADMIN);
+        authority.setName(AuthorityName.ROLE_ADMIN);
         List<Authority> authorities = Arrays.asList(authority);
 
         User user = new User();
