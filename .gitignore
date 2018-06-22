@@ -14,13 +14,13 @@ backend/.settings
 backend_two/.settings/*
 backend/target
 
-backend_two/*.class
-backend_two/*.project
-backend_two/*.springBeans
-backend_two/*.classpath
-backend_two/.settings*
-backend_two/.settings/*
-backend_two/target
+estudos/file_upload_springboor/*.class
+estudos/file_upload_springboor/*.project
+estudos/file_upload_springboor/*.springBeans
+estudos/file_upload_springboor/*.classpath
+estudos/file_upload_springboor/.settings*
+estudos/file_upload_springboor/.settings/*
+estudos/file_upload_springboor/target
 
 # Log file
 backend/*.log
