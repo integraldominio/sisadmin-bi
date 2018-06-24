@@ -77,9 +77,14 @@
 
 <h2>Adicionar</h2>
 <div class="container mat-elevation-z2">
-<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
-  <formly-form [form]="form" [fields]="fields" [model]="model">
-    <button mat-button>Salvar</button>
+<form [formGroup]="form" >
+  <formly-form
+    [form]="form"
+    [options]="options"
+    [fields]="fields"
+    [model]="model">
+    <button mat-button (click)="onSubmit(model)" >Salvar</button>
+    <button mat-button (click)="options.resetModel()">Limpar</button>
   </formly-form>
 </form>
 </div>

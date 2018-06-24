@@ -1,7 +1,8 @@
+import { MessageService } from './../../infra/message.service';
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ClienteService, Cliente } from './cliente.service';
 import { FormGroup} from '@angular/forms';
-import { FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { MatPaginator, MatSort, MatTableDataSource, PageEvent } from '@angular/material';
 
 @Component({
@@ -13,6 +14,11 @@ export class ClienteComponent implements OnInit, AfterViewInit {
 
   // form
   form = new FormGroup({});
+  options: FormlyFormOptions = {
+    formState: {
+      awesomeIsForced: false,
+    },
+  };
   model = {};
 
   // table
@@ -29,7 +35,8 @@ export class ClienteComponent implements OnInit, AfterViewInit {
   ] ;
 
   constructor (
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -40,9 +47,13 @@ export class ClienteComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit(model) {
-    this.clienteService
-      .create( model as Cliente )
-      .subscribe(  _ => { console.log(model); this.listAll(); });
+    if (this.form.valid) {
+      this.clienteService
+        .create( model as Cliente )
+        .subscribe(  _ => { console.log(model); this.listAll(); });
+    } else {
+      this.messageService.info('Informe corretamente dados obrigatórios.');
+    }
   }
 
   listAll() {
