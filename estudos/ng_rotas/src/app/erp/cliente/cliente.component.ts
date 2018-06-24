@@ -16,7 +16,7 @@ export class ClienteComponent implements OnInit, AfterViewInit {
   model = {};
 
   // table
-  displayedColumns = ['id', 'nome', 'telefone', 'email'];
+  displayedColumns = ['id', 'nome', 'telefone', 'email', 'actions'];
   dataSource: Array<Cliente> = [];
 
   fields: FormlyFieldConfig[] =
@@ -57,10 +57,16 @@ export class ClienteComponent implements OnInit, AfterViewInit {
   addNew () {
   }
 
-  startEdit(i: number, id: number, title: string, state: string, url: string, created_at: string, updated_at: string) {
+  startEdit(cliente) {
+
   }
 
-  deleteItem(i: number, id: number, title: string, state: string, url: string) {
+  deleteItem(cliente: Cliente) {
+
+    console.log( cliente);
+
+    this.clienteService.delete(cliente.id)
+    .subscribe( _ => this.listAll() );
   }
 
 

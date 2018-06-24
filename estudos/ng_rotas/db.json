@@ -18,46 +18,25 @@
   },
   "clientes": [
     {
-      "email": "email@gmail.com",
-      "nome": "lyndon 01 tavares 01",
+      "nome": "lyndon tavaresf fghfgh",
       "endereco": "rua",
       "cidade": "foz",
       "telefone": "+554599024011",
-      "id": 1
+      "id": 8
     },
     {
-      "email": "email@gmail.com",
-      "nome": "lyndon tavares",
+      "nome": "lyndon tavaresf fghfghfgh fgh",
       "endereco": "rua",
       "cidade": "foz",
       "telefone": "+554599024011",
-      "id": 2
+      "id": 9
     },
     {
-      "email": "email@gmail.com",
-      "nome": "Marianne Wetzel",
-      "endereco": "Osvaldo Goch, 1190",
-      "cidade": "Foz do Iguaçu",
-      "telefone": "45-95959595",
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "nome": "ryurtyu",
-      "cidade": "rtyurtyurtyurt",
-      "endereco": "urtyurtyu",
-      "telefone": "rtyurtyu",
-      "email": "rtyurtyu",
-      "id": 5
-    },
-    {
-      "nome": "lyndon tavares 002",
+      "nome": "lyndon 56565",
       "endereco": "rua",
       "cidade": "foz",
       "telefone": "+554599024011",
-      "id": 6
+      "id": 10
     }
   ]
 }
