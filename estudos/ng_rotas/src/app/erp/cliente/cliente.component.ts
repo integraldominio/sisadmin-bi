@@ -1,18 +1,23 @@
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ClienteService, Cliente } from './cliente.service';
-import { Component, OnInit } from '@angular/core';
-import {FormGroup} from '@angular/forms';
-import {FormlyFieldConfig} from '@ngx-formly/core';
+import { FormGroup} from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
+import { MatPaginator, MatSort, MatTableDataSource, PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',
   styleUrls: ['./cliente.component.css']
 })
-export class ClienteComponent implements OnInit {
+export class ClienteComponent implements OnInit, AfterViewInit {
 
+  // form
   form = new FormGroup({});
+  model = {};
 
-  model = { email: 'email@gmail.com' };
+  // table
+  displayedColumns = ['id', 'nome', 'telefone', 'email'];
+  dataSource: Array<Cliente> = [];
 
   fields: FormlyFieldConfig[] =
   [
@@ -28,13 +33,37 @@ export class ClienteComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.listAll();
+  }
+
+  ngAfterViewInit() {
   }
 
   onSubmit(model) {
     this.clienteService
       .create( model as Cliente )
-      .subscribe(  _ => { console.log(model); } );
+      .subscribe(  _ => { console.log(model); this.listAll(); });
   }
+
+  listAll() {
+    this.clienteService.listAll().subscribe(
+      data => {
+        this.dataSource  = data as Array<Cliente>;
+        console.log( this.dataSource );
+      }
+    );
+  }
+
+  addNew () {
+  }
+
+  startEdit(i: number, id: number, title: string, state: string, url: string, created_at: string, updated_at: string) {
+  }
+
+  deleteItem(i: number, id: number, title: string, state: string, url: string) {
+  }
+
+
 
 
 }
