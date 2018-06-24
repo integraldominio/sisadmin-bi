@@ -64,6 +64,8 @@ import { ErroComponent } from './pages/erro/erro.component';
 import { ProdutoComponent } from './erp/produto/produto.component';
 import { CatalogoComponent } from './erp/catalogo/catalogo.component';
 import { ClienteComponent } from './erp/cliente/cliente.component';
+import { SidenaveComponent } from './pages/sidenav/sidenav.component';
+import { SidenavService } from './pages/sidenav/sidenav.service';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,8 @@ import { ClienteComponent } from './erp/cliente/cliente.component';
     ErroComponent,
     ProdutoComponent,
     CatalogoComponent,
-    ClienteComponent
+    ClienteComponent,
+    SidenaveComponent
   ],
   imports: [
     // BrowserModule vem em primeiro
@@ -136,7 +139,9 @@ import { ClienteComponent } from './erp/cliente/cliente.component';
     MatTooltipModule,
     MatTreeModule
   ],
-  providers: [],
+  providers: [
+    SidenavService
+  ],
   bootstrap: [BaseComponent],
   exports: [BaseComponent]
 })
