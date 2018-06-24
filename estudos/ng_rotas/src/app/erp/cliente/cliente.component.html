@@ -1,3 +1,9 @@
-<p>
-  cliente works!
-</p>
+<h2>Cliente</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+  <formly-form [form]="form" [fields]="fields" [model]="model">
+    <button mat-button>Salvar</button>
+  </formly-form>
+</form>
+
+

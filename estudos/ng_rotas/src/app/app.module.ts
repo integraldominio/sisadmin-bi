@@ -3,8 +3,12 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import {FormlyModule} from '@ngx-formly/core';
+import {FormlyMaterialModule} from '@ngx-formly/material';
 
 import {A11yModule} from '@angular/cdk/a11y';
 import {BidiModule} from '@angular/cdk/bidi';
@@ -55,6 +59,19 @@ import {
   MatTreeModule,
 } from '@angular/material';
 
+
+import {
+  AuthGuard,
+  AuthenticationService,
+  JwtInterceptor,
+  MessageService,
+  Resource,
+  ResourceService,
+  SubResourceService,
+  UserService,
+  ConfigService
+} from './infra';
+
 import { AppRotasModule } from './app-rotas.module';
 import { BaseComponent } from './pages/base/base.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -64,6 +81,7 @@ import { ErroComponent } from './pages/erro/erro.component';
 import { ProdutoComponent } from './erp/produto/produto.component';
 import { CatalogoComponent } from './erp/catalogo/catalogo.component';
 import { ClienteComponent } from './erp/cliente/cliente.component';
+import { ClienteService } from './erp/cliente/cliente.service';
 import { SidenaveComponent } from './pages/sidenav/sidenav.component';
 import { SidenavService } from './pages/sidenav/sidenav.service';
 
@@ -82,6 +100,9 @@ import { SidenavService } from './pages/sidenav/sidenav.service';
   imports: [
     // BrowserModule vem em primeiro
     BrowserModule,
+    // Http
+    HttpModule,
+    HttpClientModule,
     // depois outro módulos
     BrowserAnimationsModule,
     FlexLayoutModule,
@@ -137,10 +158,24 @@ import { SidenavService } from './pages/sidenav/sidenav.service';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+
+    // formly
+    FormlyModule.forRoot(),
+    FormlyMaterialModule,
+
   ],
   providers: [
-    SidenavService
+    SidenavService,
+    ClienteService,
+
+    AuthGuard,
+    AuthenticationService,
+    ConfigService,
+    JwtInterceptor,
+    MessageService,
+    UserService,
+
   ],
   bootstrap: [BaseComponent],
   exports: [BaseComponent]

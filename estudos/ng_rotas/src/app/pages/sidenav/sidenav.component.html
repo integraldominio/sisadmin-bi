@@ -19,7 +19,7 @@
         <a mat-list-item  [routerLink]="['/home/sobre']" >Sobre</a>
         <a mat-list-item  [routerLink]="['/login']" >Login</a> -->
 
-         <a mat-list-item  (click)="sidenav.toggle()" [routerLink]="['/home/cliente']" >Cliente</a>
+         <a mat-list-item (click)="sidenav.toggle()" [routerLink]="['/home/cliente']" >Cliente</a>
         <a mat-list-item  (click)="sidenav.toggle()" [routerLink]="['/home/catalogo']" >Catálogo</a>
         <a mat-list-item  (click)="sidenav.toggle()" [routerLink]="['/home/sobre']" >Sobre</a>
         <a mat-list-item  (click)="sidenav.toggle()" [routerLink]="['/login']" >Login</a>
@@ -27,8 +27,10 @@
 
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
+
+
+  <mat-sidenav-content  >
+    <mat-toolbar color="primary" >
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -39,8 +41,13 @@
 
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Application Title</span>
+      <span>Pet Store</span>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+
+
   </mat-sidenav-content>
 </mat-sidenav-container>

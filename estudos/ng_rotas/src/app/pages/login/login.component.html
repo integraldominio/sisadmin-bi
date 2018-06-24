@@ -1,28 +1,49 @@
+<div class="html" fxLayout="column" fxLayoutAlign="center center" >
+
+  <mat-card elevation="10" class="mat-card" fxFlex>
+
+    <img mat-card-image src="/assets/images/logo4.png"  >
+
+    <mat-card-subtitle>
+      <h2>Pet Store App 1.0</h2>
+    </mat-card-subtitle>
+
+    <mat-card-title>
+      <h2>{{title}}</h2>
+    </mat-card-title>
+
+    <mat-card-content>
 
 
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
+
+
     <form class="example-form">
       <table class="example-full-width" cellspacing="0">
         <tr>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="mat-form-field">
             <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
             </mat-form-field>
           </td>
         </tr>
         <tr>
-        <td><mat-form-field class="example-full-width">
+        <td><mat-form-field class="mat-form-field">
           <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
         </mat-form-field></td>
       </tr></table>
     </form>
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-  </mat-card-content>
+    <mat-spinner [style.display]="false ? 'block' : 'none'"></mat-spinner>
+
+
   <mat-card-actions>
     <button mat-raised-button (click)="login()" color="primary">Login</button>
   </mat-card-actions>
+
+
+
+
+</mat-card-content>
+
 </mat-card>
+
+</div>

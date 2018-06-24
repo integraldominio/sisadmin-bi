@@ -1,0 +1,37 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "",
+      "endereco": "",
+      "cidade": "",
+      "telefone": "",
+      "email": ""
+    },
+    {
+      "email": "email@gmail.com",
+      "nome": "lyndon tavares",
+      "endereco": "rua",
+      "cidade": "foz",
+      "telefone": "+554599024011",
+      "id": 2
+    }
+  ]
+}
