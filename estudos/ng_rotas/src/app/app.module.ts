@@ -62,6 +62,8 @@ import {
 
 import {
   AuthGuard,
+  GuestGuard,
+  AdminGuard,
   AuthenticationService,
   JwtInterceptor,
   MessageService,
@@ -170,6 +172,8 @@ import { SidenavService } from './pages/sidenav/sidenav.service';
     ClienteService,
 
     AuthGuard,
+    GuestGuard,
+    AdminGuard,
     AuthenticationService,
     ConfigService,
     JwtInterceptor,

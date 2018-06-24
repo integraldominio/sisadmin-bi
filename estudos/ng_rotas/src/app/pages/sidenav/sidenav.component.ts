@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../infra/authentication.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
@@ -17,20 +18,19 @@ export class SidenaveComponent implements OnInit {
   constructor (
     private router: Router,
     private breakpointObserver: BreakpointObserver,
-    private sidenavService: SidenavService
+    private sidenavService: SidenavService,
+    private authenticationService: AuthenticationService
   ) {}
 
   isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
 
   ngOnInit(): void {
-    // controle do sidenav com classe de servico
-    // this.sidenavService.setSidenav(this.sidenav);
-    // this.router.events
-    // .subscribe(event => {
-    // if (event instanceof NavigationStart || event instanceof  ResolveStart   ) {
-    //    this.sidenavService.close().then(() => { });
-    //  }
-    // });
+  }
+
+  logout() {
+    this.sidenav.toggle();
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

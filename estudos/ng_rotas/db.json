@@ -32,6 +32,14 @@
       "cidade": "foz",
       "telefone": "+554599024011",
       "id": 2
+    },
+    {
+      "email": "email@gmail.com",
+      "nome": "Marianne Wetzel",
+      "endereco": "Osvaldo Goch, 1190",
+      "cidade": "Foz do Iguaçu",
+      "telefone": "45-95959595",
+      "id": 3
     }
   ]
 }

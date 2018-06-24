@@ -39,4 +39,8 @@ export class AuthenticationService {
       localStorage.removeItem('currentUser');
     }
 
+    getCurrentUser() {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      return currentUser ? currentUser : '';
+    }
 }

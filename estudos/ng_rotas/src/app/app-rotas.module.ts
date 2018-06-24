@@ -7,16 +7,17 @@ import { ErroComponent } from './pages/erro/erro.component';
 import { CatalogoComponent } from './erp/catalogo/catalogo.component';
 import { ClienteComponent } from './erp/cliente/cliente.component';
 import { ProdutoComponent } from './erp/produto/produto.component';
+import { AuthGuard } from './infra';
 
 const routes: Routes =
 
 [{ path: 'login', component: LoginComponent},
-{ path: 'home',  component: SidenaveComponent,
+{ path: 'home',  component: SidenaveComponent, canActivate: [AuthGuard] ,
   children: [
-    { path: 'sobre', component: SobreComponent, },
-    { path: 'catalogo', component: CatalogoComponent },
-    { path: 'cliente',  component: ClienteComponent },
-    { path: 'produto',  component: ProdutoComponent },
+    { path: 'sobre', component: SobreComponent, canActivate: [AuthGuard]},
+    { path: 'catalogo', component: CatalogoComponent, canActivate: [AuthGuard] },
+    { path: 'cliente',  component: ClienteComponent, canActivate: [AuthGuard] },
+    { path: 'produto',  component: ProdutoComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: 'sobre', pathMatch: 'full' }
   ]
 },

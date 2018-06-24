@@ -1,4 +1,6 @@
 export * from './auth.guard';
+export * from './admin.guard';
+export * from './guest.guard';
 export * from './authentication.service';
 export * from './config.service';
 export * from './jwt.interceptor';
