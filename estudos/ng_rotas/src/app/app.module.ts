@@ -9,6 +9,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {FormlyModule} from '@ngx-formly/core';
 import {FormlyMaterialModule} from '@ngx-formly/material';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 import {A11yModule} from '@angular/cdk/a11y';
 import {BidiModule} from '@angular/cdk/bidi';
@@ -87,6 +88,8 @@ import { ClienteService } from './erp/cliente/cliente.service';
 import { SidenaveComponent } from './pages/sidenav/sidenav.component';
 import { SidenavService } from './pages/sidenav/sidenav.service';
 import { UploadComponent } from './upload/upload.component';
+import { PetComponent } from './erp/pet/pet.component';
+import { QrcodeComponent } from './erp/qrcode/qrcode.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +102,9 @@ import { UploadComponent } from './upload/upload.component';
     CatalogoComponent,
     ClienteComponent,
     SidenaveComponent,
-    UploadComponent
+    UploadComponent,
+    PetComponent,
+    QrcodeComponent
   ],
   imports: [
     // BrowserModule vem em primeiro
@@ -167,6 +172,7 @@ import { UploadComponent } from './upload/upload.component';
     // formly
     FormlyModule.forRoot(),
     FormlyMaterialModule,
+    NgxQRCodeModule,
 
   ],
   providers: [

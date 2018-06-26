@@ -9,6 +9,7 @@ import { ClienteComponent } from './erp/cliente/cliente.component';
 import { ProdutoComponent } from './erp/produto/produto.component';
 import { AuthGuard } from './infra';
 import { UploadComponent } from './upload/upload.component';
+import { PetComponent } from './erp/pet/pet.component';
 
 const routes: Routes =
 
@@ -19,6 +20,7 @@ const routes: Routes =
     { path: 'catalogo', component: CatalogoComponent, canActivate: [AuthGuard] },
     { path: 'cliente',  component: ClienteComponent, canActivate: [AuthGuard] },
     { path: 'produto',  component: ProdutoComponent, canActivate: [AuthGuard] },
+    { path: 'pet',  component: PetComponent, canActivate: [AuthGuard] },
     { path: 'upload',  component: UploadComponent  , canActivate: [AuthGuard] },
     { path: '', redirectTo: 'sobre', pathMatch: 'full' }
   ]
