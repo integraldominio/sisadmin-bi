@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -86,6 +86,7 @@ import { ClienteComponent } from './erp/cliente/cliente.component';
 import { ClienteService } from './erp/cliente/cliente.service';
 import { SidenaveComponent } from './pages/sidenav/sidenav.component';
 import { SidenavService } from './pages/sidenav/sidenav.service';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { SidenavService } from './pages/sidenav/sidenav.service';
     ProdutoComponent,
     CatalogoComponent,
     ClienteComponent,
-    SidenaveComponent
+    SidenaveComponent,
+    UploadComponent
   ],
   imports: [
     // BrowserModule vem em primeiro
