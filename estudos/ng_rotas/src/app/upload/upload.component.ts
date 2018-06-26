@@ -39,7 +39,19 @@ export class UploadComponent implements OnInit {
   upload(files: File[]) {
     // pick from one of the 4 styles of file uploads below
     console.log('>>>Enviando arquivo');
+    // this.basicUpload(files);
     this.basicUpload(files);
+  }
+
+  basicDirect(files: File[]) {
+    this.http.post('http://localhost:4000/api/upload', files[0], httpOptions)
+      .subscribe(event => {
+        console.log(event);
+        this.uploadSuccess = true;
+        this.resposta = event as Resp ;
+        console.log(this.resposta);
+        this.img.nativeElement.setAttribute('src', this.resposta.link);
+      });
   }
 
   basicUpload(files: File[]) {

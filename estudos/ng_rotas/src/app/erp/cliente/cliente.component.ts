@@ -69,13 +69,9 @@ export class ClienteComponent implements OnInit, AfterViewInit {
   }
 
   startEdit(cliente) {
-
   }
 
   deleteItem(cliente: Cliente) {
-
-    console.log( cliente);
-
     this.clienteService.delete(cliente.id)
     .subscribe( _ => this.listAll() );
   }

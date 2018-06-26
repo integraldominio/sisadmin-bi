@@ -37,6 +37,34 @@
       "cidade": "foz",
       "telefone": "+554599024011",
       "id": 10
+    },
+    {
+      "nome": "dwedwed",
+      "endereco": "wed",
+      "cidade": "wed",
+      "telefone": "wed",
+      "email": "wed",
+      "id": 11
+    }
+  ],
+  "pets": [
+    {
+      "id": 1,
+      "firstName": "Domine",
+      "lastName": ""
+    },
+    {
+      "id": 2,
+      "firstName": "Will",
+      "lastName": ""
+    },
+    {
+      "street": "22s",
+      "cityName": "wswsw",
+      "firstName": "wsws",
+      "lastName": "wswsw",
+      "image": {},
+      "id": 3
     }
   ]
 }

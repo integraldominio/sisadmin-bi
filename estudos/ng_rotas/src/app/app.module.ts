@@ -10,6 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {FormlyModule} from '@ngx-formly/core';
 import {FormlyMaterialModule} from '@ngx-formly/material';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 import {A11yModule} from '@angular/cdk/a11y';
 import {BidiModule} from '@angular/cdk/bidi';
@@ -90,6 +91,7 @@ import { SidenavService } from './pages/sidenav/sidenav.service';
 import { UploadComponent } from './upload/upload.component';
 import { PetComponent } from './erp/pet/pet.component';
 import { QrcodeComponent } from './erp/qrcode/qrcode.component';
+import { Upload2Component } from './upload2/upload2.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +106,9 @@ import { QrcodeComponent } from './erp/qrcode/qrcode.component';
     SidenaveComponent,
     UploadComponent,
     PetComponent,
-    QrcodeComponent
+    QrcodeComponent,
+    Upload2Component,
+    FileSelectDirective
   ],
   imports: [
     // BrowserModule vem em primeiro
