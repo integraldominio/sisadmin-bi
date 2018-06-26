@@ -1,0 +1,12 @@
+<p>
+  detalhe works!
+</p>
+
+<ul>
+  <li *ngFor="let f of recebeProdutos">
+    {{f.nome}}
+  </li>
+</ul>
+
+<br/>
+<button (click)="feedback()" >Emitir resposta</button>
