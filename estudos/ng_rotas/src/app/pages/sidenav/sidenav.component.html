@@ -3,7 +3,7 @@
       sidenav.toggle() aberto ou fechado
     -->
 
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" >
   <mat-sidenav
     #sidenav
     class="sidenav"
@@ -11,7 +11,8 @@
     [attr.role]="isHandset ? 'dialog' : 'navigation'"
     [mode]="(isHandset | async)!.matches ? 'over' : 'side'"
     [opened]="!(isHandset | async)!.matches">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+
+    <mat-toolbar color="primary" class="mat-elevation-z6" style="height:50px;"  >Menu</mat-toolbar>
     <mat-nav-list>
 
 <!--         <a mat-list-item  [routerLink]="['/home/cliente']" >Cliente</a>
@@ -33,7 +34,7 @@
 
 
   <mat-sidenav-content  >
-    <mat-toolbar color="primary" >
+    <mat-toolbar color="primary" class="fixed-header mat-elevation-z6" style="height:50px;" >
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -47,7 +48,7 @@
       <span>Pet Store</span>
     </mat-toolbar>
 
-      <div class="container">
+      <div class="inner-sidenav-content">
         <router-outlet></router-outlet>
       </div>
 

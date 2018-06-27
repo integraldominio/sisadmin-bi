@@ -13,6 +13,8 @@ import { MatSidenav } from '@angular/material';
 })
 export class SidenaveComponent implements OnInit {
 
+  private islogado = false;
+
   @ViewChild('sidenav') public sidenav: MatSidenav;
 
   constructor (
@@ -25,6 +27,7 @@ export class SidenaveComponent implements OnInit {
   isHandset: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.Handset);
 
   ngOnInit(): void {
+
   }
 
   logout() {

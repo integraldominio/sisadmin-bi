@@ -92,6 +92,7 @@ import { UploadComponent } from './upload/upload.component';
 import { PetComponent } from './erp/pet/pet.component';
 import { QrcodeComponent } from './erp/qrcode/qrcode.component';
 import { Upload2Component } from './upload2/upload2.component';
+import { Nav2Component } from './nav2/nav2.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import { Upload2Component } from './upload2/upload2.component';
     PetComponent,
     QrcodeComponent,
     Upload2Component,
-    FileSelectDirective
+    FileSelectDirective,
+    Nav2Component
   ],
   imports: [
     // BrowserModule vem em primeiro

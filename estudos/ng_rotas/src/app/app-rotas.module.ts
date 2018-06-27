@@ -11,6 +11,7 @@ import { AuthGuard } from './infra';
 import { UploadComponent } from './upload/upload.component';
 import { Upload2Component } from './upload2/upload2.component';
 import { PetComponent } from './erp/pet/pet.component';
+import { Nav2Component } from './nav2/nav2.component';
 
 const routes: Routes =
 
@@ -24,6 +25,7 @@ const routes: Routes =
     { path: 'pet',  component: PetComponent, canActivate: [AuthGuard] },
     { path: 'upload',  component: UploadComponent  , canActivate: [AuthGuard] },
     { path: 'upload2',  component: Upload2Component  , canActivate: [AuthGuard] },
+    { path: 'nav2',  component: Nav2Component  , canActivate: [AuthGuard] },
     { path: '', redirectTo: 'sobre', pathMatch: 'full' }
   ]
 },
