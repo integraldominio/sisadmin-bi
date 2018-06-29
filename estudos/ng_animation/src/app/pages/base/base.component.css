@@ -1,0 +1,19 @@
+:host {
+  width: 100%;
+  height: 100%;
+  background: #5942f4;
+  display: flex;
+  color: white;
+  font-family: Bangers;
+  font-size: 2rem;
+  margin: 1rem auto;
+
+  position: absolute;
+}
+
+.main {
+  position: relative;
+  width: auto;
+
+  margin: 0 auto;
+}
