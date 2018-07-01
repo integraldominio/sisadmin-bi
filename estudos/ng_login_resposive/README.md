@@ -43,7 +43,7 @@ style.css
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 ```
 
-### Adicioe em Index.html
+### Adicione em Index.html
 
 ```css
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
