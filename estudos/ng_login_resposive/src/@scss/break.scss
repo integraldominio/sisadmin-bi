@@ -1,0 +1,97 @@
+@import '~@angular/material/theming';
+
+// Quebras conforme Angular Material
+$breakpoints: (
+    xs: 'screen and (max-width: 599px)',
+    sm: 'screen and (min-width: 600px) and (max-width: 959px)',
+    md: 'screen and (min-width: 960px) and (max-width: 1279px)',
+    lg: 'screen and (min-width: 1280px) and (max-width: 1919px)',
+    xl: 'screen and (min-width: 1920px) and (max-width: 5000px)',
+    lt-sm: 'screen and (max-width: 599px)',
+    lt-md: 'screen and (max-width: 959px)',
+    lt-lg: 'screen and (max-width: 1279px)',
+    lt-xl: 'screen and (max-width: 1919px)',
+    gt-xs: 'screen and (min-width: 600px)',
+    gt-sm: 'screen and (min-width: 960px)',
+    gt-md: 'screen and (min-width: 1280px)',
+    gt-lg: 'screen and (min-width: 1920px)'
+) !default;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 600px,
+    md: 960px,
+    lg: 1280px,
+    xl: 1920px
+) !default;
+
+@mixin media-breakpoint($breakpointName) {
+
+    $mediaQuery: map_get($breakpoints, $breakpointName);
+
+    @if ($mediaQuery != null) {
+
+        @media #{$mediaQuery} {
+            @content
+        }
+    }
+}
+
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min != 0, $min, null);
+}
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+    $next: breakpoint-next($name, $breakpoints);
+    @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+}
+
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+    @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+    $max: breakpoint-max($name, $breakpoints);
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-max($lower, $breakpoints);
+    $max: breakpoint-max($upper, $breakpoints);
+
+    @media (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    $max: breakpoint-max($name, $breakpoints);
+
+    @media (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
