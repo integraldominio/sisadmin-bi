@@ -1,11 +1,19 @@
-.html {
-
-  width: 100%;
+.login {
+  position:center center;
+  background: url('/assets/dark.jpg') no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  width: 100vw;
+  height: 100vh;
 
  }
 
+
 mat-card {
-  max-width: 350px;
+  width: 384px;
+  max-width: 384px;
   text-align: center;
   animation: fadein 1s;
   -o-animation: fadein 1s; /* Opera */
