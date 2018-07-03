@@ -1,5 +1,7 @@
 .vscode
 .vscode/**
+.estudos/vscode
+.estudos/vscode/**
 estudos/api_express/package-lock.json 
 estudos/api_express/node_modules
 estudos/file_upload_angular/package-lock.json
