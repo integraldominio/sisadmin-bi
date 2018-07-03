@@ -44,3 +44,4 @@ backend/*.log
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+estudos/ng_login_resposive/package-lock.json
